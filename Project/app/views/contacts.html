@@ -1,0 +1,231 @@
+<div class="container" ng-app="profile" ng-controller="profileController">
+	<!-- Row Starts Here -->
+	<div class="row">
+
+		<!-- KRATIN LOGO -->
+	    <div class="col-lg-1 col-md-2 col-sm-2 col-xs-2">
+	      <img src="assets/images/kratin.png" class="img-responsive img-center img-rounded" width="45px">
+	    </div>
+
+	    <!-- Search Bar for all device except Mobile -->
+	    <div class="col-lg-10 col-md-8 col-sm-8 visible-lg visible-sm visible-md center-block text-center">
+
+	       <div class="input-group">
+	            <div class="input-group-btn search-panel">
+	                <button type="button" class="btn btn-default dropdown-toggle set2" data-toggle="dropdown">
+	                    <span id="search_concept" ng-click="any()">Anything</span> <span class="caret"></span>
+	                </button>
+	                <ul class="dropdown-menu" role="menu">
+	    	            <li><a href="" value="any" ng-model="anyterm" ng-click="any()">Anything</a></li>
+    	                <li class="divider"></li>
+	                    <li><a href="" ng-click="name()">Name</a></li>
+	                    <li><a href="" ng-click="email()">Email</a></li>
+	                	<li><a href="" ng-click="phone()">Phone</a></li>
+	                    <li><a href="" ng-click="city()">City</a></li>
+	                    <li><a href="" ng-click="company()">Company</a></li>
+	                    <li><a href="" ng-click="tag()">Tags</a></li>
+					</ul>
+	            </div>
+	       		<input type="hidden" name="search_param" value="all" id="search_param">         
+	            <input type="text" class="form-control search1" name="x" placeholder="Search term..." ng-model="add.consearch" ng-change="mysearch()" ng-model-options="{debounce: 1000}" >
+
+	            <br>
+
+	            <span class="input-group-btn">
+	                <button class="btn btn-default set" type="button" ng-click="mysearch()">
+	                	<span class="glyphicon glyphicon-search"></span>
+	           		</button>
+	            </span>
+	        </div>
+			<a href="">
+				<span ng-click="allcontacttag()" class="fa fa-tags s1">All</span>
+			</a>
+			<span class="fa fa-tags s1" ng-repeat="tags in mytag" style="margin:5px">
+			   	<a href="" ng-click="srtag(tags)">{{tags.name}}</a>
+			</span>
+	  	</div>  
+
+	  	<!-- Userr profile for Mobile -->
+	  	<div class="col-xs-2 visible-xs pull-right show">
+		    <img src="assets/images/user_img.jpg" class="img-responsive img-circle user-pic pull-left ">
+	 		<div class="profile" ng-repeat="user in users"> 
+	        	<div class="pro-pic pull-left">
+	            	<a href=""><img src="assets/images/user_img.jpg" class="img-rounded" width=40px ></a>
+	        	</div>
+	             
+	        	<div class="right">
+	              	{{user.firstname + '' + user.lastname}}<br />
+	              	<span>{{user.email}}</span><br />
+	             	<a href="#/change_pass">Change your password</a><br />
+	             	<a href="#/manage_tags" class="btn btn-primary text-center" ng-show="manage">Manage Tags</a>
+	              	<a href="#/" class="btn btn-primary" ng-click="logout()">Log out</a>
+	            </div>
+	    	</div> 
+	   </div>
+
+
+	   <!-- Search bar for MObile -->
+		<div class="col-xs-12 visible-xs">
+
+	       <div class="input-group">
+	            <div class="input-group-btn search-panel">
+	                <button type="button" class="btn btn-default dropdown-toggle set2" data-toggle="dropdown">
+	                    <span id="search_concept" ng-click="any()">Anything</span> <span class="caret"></span>
+	                </button>
+	                <ul class="dropdown-menu" role="menu">
+	    	            <li><a href="" value="any" ng-model="anyterm" ng-click="any()">Anything</a></li>
+		                <li class="divider"></li>
+	                    <li><a href="" ng-click="name()">Name</a></li>
+	                    <li><a href="" ng-click="email()">Email</a></li>
+	                    <li><a href="" ng-click="phone()">Phone</a></li>
+	                    <li><a href="" ng-click="city()">City</a></li>
+	                    <li><a href="" ng-click="company()">Company</a></li>
+	                    <li><a href="" ng-click="tag()">Tags</a></li>     
+	                </ul>
+	            </div>
+	            <input type="hidden" name="search_param" value="all" id="search_param">         
+	            <input type="text" class="form-control search1" name="x" placeholder="Search term..." ng-model="add.consearch" ng-change="mysearch()" ng-model-options="{debounce: 1000}" ><br>
+	            <a href="" ng-repeat="contact in mycard" style="background:white" ng-model="addnewcon"></a> 
+
+	            <span class="input-group-btn">
+	                <button class="btn btn-default set" type="button" ng-click="check()">
+	                	<span class="glyphicon glyphicon-search"></span>
+	           		</button>
+	            </span>
+	        </div>
+	        <a href="">
+	        	<span ng-click="allcontacttag()" class="fa fa-tags s1">All</span>
+	        </a>
+			<span class="fa fa-tags s1" ng-repeat="tags in mytag" style="margin:5px">
+			    <a href="" ng-click="srtag(tags)">{{tags.name}}</a>
+			</span>
+		</div>  
+
+		<!--USER PROFILE FOR ALL DEVICES EXCEPT MOBILE  -->
+	   <div class="col-lg-1 col-md-2 col-sm-2 visible-lg visible-md visible-sm show" ng-repeat="user in users">
+		    <img src="assets/images/user_img.jpg" class="img-responsive img-circle img-center user-pic">
+	 		<div class="profile"" > 
+	        	<div class="pro-pic pull-left">
+	            	<a href=""><img src="assets/images/user_img.jpg" class="img-circle" width="50px"></a>
+	        	</div>
+	        	<div class="right">
+	              	{{user.firstname+ " "+user.lastname}}<br />
+	              	<span>{{user.email}}</span><br />
+	             	<a href="#/change_pass">Change your password</a><br />
+	             	<a href="#/manage_tags" class="btn btn-primary text-center" ng-show="manage">Manage Tags</a>
+	              	<a href="#/" class="btn btn-primary" ng-click="logout()">Log out</a>
+	            </div>
+	    	</div> 
+	   </div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	<!--OPTIONS FOR USER ->UPLOAD, DOWNLOAD, ADD NEW CONTACT, LIST VIEW AND GRID VIEW  -->
+	<div class="row">
+		<div class="opt">
+			<!-- Button to Upload Contact -->
+			<a href=""><span class="fa fa-upload pull-right" data-toggle="tooltip" title="Upload Contact"></span></a>
+
+			<!-- Button for download contact -->
+			<a href=""><span class="fa fa-download pull-right" data-toggle="tooltip" title="Downlaod Contact"></span></a>
+
+			<!-- Button for Adding new contact -->
+			<a href="#/add_new"><span class="fa fa-user-plus pull-right" data-toggle="tooltip" title="Add New Contact"></span></a>
+
+			<!-- Button for List view of contact -->
+			<a href="#/listview" class="visible-lg visible-md"><span class="fa fa-list pull-left" data-toggle="tooltip" title="List view"></span></a>
+
+			<!-- Button for Grid view of contact -->
+			<a href="" class="visible-lg visible-md" ng-click="allcontacttag()"><span class="fa fa-th pull-left" data-toggle="tooltip" title="Grid View"></span></a>
+		</div>
+	</div>	
+	
+	<div class="clearfix"></div>
+
+	<!-- DISPLAY OF ALL CONTATCS -->
+	<div class="contact-row">
+
+		<!--LOADER DIV  -->
+		<div class="row text-center" ng-show="loading">
+			<img src="assets/images/loader.gif">
+		</div>
+		
+		<!-- TEXT TO DISPLAY IF NO ANY SEARCHED CONTACT FOUND -->
+		<div class="row text-center" ng-show="!loading && (mycard.length == '0')">
+			<h4>No contacts Available for this search</h4>
+		</div>
+
+		<!-- DISPLAY OF CONTACT -->
+		<div class="row" ng-show="!loading && (mycard.length != '0')">
+			
+			<div class="col-xs-offset-1 col-xs-10 col-lg-offset-0 col-sm-offset-0 col-md-offset-0 col-md-4 col-sm-6 contact-card" ng-repeat="contact in mycard">
+
+				<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 contact-box" >
+						
+					<!-- EDIT/DELETE BLOCK ON HOVER -->
+					<div class="ed">
+						<a href="#/edit_contact/{{contact.id}}">
+							<span class="pull-right fa fa-edit edit-del" data-toggle="tooltip" title="Edit Contact"></span>
+						</a>
+
+						<a href="">
+							<span class="pull-right fa fa-trash edit-del" data-toggle="tooltip" title="Delete contact" ng-click="delete(contact)"></span>
+						</a><br>
+					</div>
+
+					<!-- CONTACT PHOTO -->
+					<div class="col-lg-4 col-sm-4 col-xs-4 col-md-4 contact-pic">
+						
+						<img data-ng-src="data:image/png;base64,{{contact.photo}}" class="img-circle image-responsive" width=100 height=100 data-toggle="tooltip" title="{{contact.firstname + ' ' + contact.lastname}}">
+							
+					</div>
+
+					<!-- CONTACT FIRSTNAME AND LASTNAME -->
+					<div class="col-lg-8 col-sm-8 col-md-8 col-xs-8 contact-all pull-right">
+						
+						<h4 class="contact-title">
+							<a href="#/edit_contact/{{contact.id}}">
+							{{contact.firstname+ " "+contact.lastname}}
+							</a>
+						</h4>
+
+						<i class="fa fa-envelope contact-info" data-toggle="tooltip" title="Email ID"></i><span data-toggle="tooltip" title="{{contact.email}}">{{contact.email}}</span><br>
+
+						<i class="fa fa-phone contact-info" data-toggle="tooltip" title="Phone"></i>
+						<span data-toggle="tooltip" title="{{contact.phone}}">{{contact.phone}}</span><br><br>
+					</div>
+
+					<!-- TAGS OF CONTACT -->
+					<p> 
+						<span class="fa fa-tags"></span>
+						Tags: 
+						<strong>
+							{{contact.tags.join(',')  | limitTo:25}}
+							<span ng-if="contact.tags.join(',').length > 25" data-toggle="tooltip" title={{contact.tags.join(',')}}>
+								<i class="fa fa-chevron-circle-right"></i>
+							</span>
+						</strong>
+					</p>	
+				</div>
+			</div>
+		</div>	
+
+		<!-- DISPLAT OF CONTACT WITH MESSAGE IF NO CONTACT PRESENT -->
+		<div class="col-xs-12 col-md-4 col-sm-4 contact-card" ng-if="Message">
+
+			<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 contact-box" >
+				
+				<div class="col-lg-4 col-sm-12 col-xs-4 col-md-4 contact-pic">
+
+					<img src="assets/images/user.png" class="img-circle image-responsive" width="100" height="100">					
+					
+				</div>
+
+				<div class="col-lg-8 col-sm-12 col-md-8 col-xs-8 contact-all">
+					<h4 class="contact-title"><a href="#/add_new">Add new Contact</a></h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

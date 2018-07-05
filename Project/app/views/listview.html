@@ -1,0 +1,167 @@
+<div class="container" ng-app="contactTable1" ng-controller="contactTable">
+  
+  <!-- HEADER SECTION -->
+  <div class="row">
+
+    <!-- KRATIN LOGO -->
+    <div class="col-lg-1 col-md-2 col-sm-2 col-xs-2">
+      <img src="assets/images/kratin.png" class="img-responsive img-center img-rounded" width="45px">
+    </div>
+
+    <!-- Search Bar for all device except Mobile -->
+    <div class="col-lg-10 col-md-8 col-sm-8 visible-lg visible-sm visible-md center-block text-center">
+
+      <div class="input-group">
+
+        <div class="input-group-btn search-panel">
+          
+          <button type="button" class="btn btn-default dropdown-toggle set2" data-toggle="dropdown">
+            <span id="search_concept">Select Category</span> <span class="caret"></span>
+          </button>
+          
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="" value="any" ng-model="anyterm" ng-click="any();tag()">Anything</a></li>
+            <li class="divider"></li>
+            <li><a href="" ng-click="name()">Name</a></li>
+            <li><a href="" ng-click="email()">Email</a></li>
+            <li><a href="" ng-click="phone()">Phone</a></li>
+            <li><a href="" ng-click="city()">City</a></li>
+            <li><a href="" ng-click="company()">Company</a></li>
+            <li><a href="" ng-click="tag()">Tags</a></li>
+          </ul>
+        </div>
+
+        <input type="hidden" name="search_param" value="all" id="search_param">         
+        
+        <input type="text" class="form-control search1" name="x" placeholder="Search term..." ng-model="add.consearch" ng-change="mysearch()" ng-model-options="{debounce: 1000}" >
+
+        <span class="input-group-btn">
+          <button class="btn btn-default set" type="button" ng-click="mysearch()">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+     
+      </div>
+     
+      <a href=""><span ng-click="allcontacttag()" class="fa fa-tags s1">All</span></a>
+      <span class="fa fa-tags s1" ng-repeat="tags in mytag" style="margin:5px">
+      <a href="" ng-click="srtag(tags)">{{tags.name}}</a></span>
+    </div>  
+
+    <!-- Search bar for MObile -->
+    <div class="col-xs-12 visible-xs">
+
+         <div class="input-group">
+              <div class="input-group-btn search-panel">
+                  <button type="button" class="btn btn-default dropdown-toggle set2" data-toggle="dropdown">
+                      <span id="search_concept">Select Category</span> <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                      <li><a href="" value="any" ng-model="anyterm" ng-click="any();tag()">Anything</a></li>
+                      <li class="divider"></li>
+                        <li><a href="" ng-click="name()">Name</a></li>
+                        <li><a href="" ng-click="email()">Email</a></li>
+                        <li><a href="" ng-click="phone()">Phone</a></li>
+                        <li><a href="" ng-click="city()">City</a></li>
+                        <li><a href="" ng-click="company()">Company</a></li>
+                        <li><a href="" ng-click="tag()">Tags</a></li>     
+                  </ul>
+              </div>
+              <input type="hidden" name="search_param" value="all" id="search_param">         
+              <input type="text" class="form-control search1" name="x" placeholder="Search term..." ng-model="add.consearch" my-enter="check()" ng-change="mysearch()" ng-model-options="{debounce: 1000}" ><br>
+               <a href="" ng-repeat="contact in mycard" style="background:white" ng-model="addnewcon"></a> 
+
+              <span class="input-group-btn">
+                  <button class="btn btn-default set" type="button" ng-click="check()">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+              </span>
+          </div>
+          <a href=""><span ng-click="allcontacttag()" class="fa fa-tags s1">All</span></a>
+            <span class="fa fa-tags s1" ng-repeat="tags in mytag" style="margin:5px">
+            <a href="" ng-click="srtag(tags)">{{tags.name}}</a></span>
+    </div>  
+
+    <!--USER PROFILE FOR ALL DEVICES EXCEPT MOBILE  -->
+    <div class="col-lg-1 col-md-2 col-sm-2 visible-lg visible-md visible-sm show" ng-repeat="user in users">
+      <img src="assets/images/user_img.jpg" class="img-responsive img-circle img-center" width="50px">
+      <div class="profile"" > 
+        
+        <div class="pro-pic pull-left">
+          <a href=""><img src="assets/images/user_img.jpg" class="img-circle" width="50px"></a>
+        </div>
+        <div class="right">
+          {{user.firstname+ " "+user.lastname}}<br />
+          <span>{{user.email}}</span><br />
+          <a href="#/change_pass">Change your password</a><br />
+          <a href="#/manage_tags" class="btn btn-primary text-center" ng-show="manage">Manage Tags</a>
+          <a href="#/" class="btn btn-primary" ng-click="logout()">Log out</a>
+        </div>
+      </div> 
+    </div>
+  </div>
+  
+ 
+
+  <!-- OPTION TABS -->
+  <div class="row">
+    <div class="opt">
+      <a href="#/"><span class="fa fa-upload pull-right" data-toggle="tooltip" title="Upload Contact"></span></a>
+    
+      <a href="#/"><span class="fa fa-download pull-right" data-toggle="tooltip" title="Downlaod Contact"></span></a>
+        
+      <a href="#/add_new"><span class="fa fa-user-plus pull-right" data-toggle="tooltip" title="Add New Contact"></span></a>
+        
+      <a href="#/listview"><span class="fa fa-list pull-left" data-toggle="tooltip" title="List view"></span></a>
+        
+      <a href="#/contacts"><span class="fa fa-th pull-left" data-toggle="tooltip" title="Grid View"></span></a>
+      </div>
+    </div>
+  
+    <!-- TABLE FOR LIST VIEW -->
+    <div class="bs-component">
+      <table class="table table-striped table-hover" border="1">
+        <thead>
+          <tr>
+            <th ng-click="sort('id')">Id
+              <span class="glyphicon sort-icon" ng-show="sortKey=='id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            </th>
+            <th ng-click="sort('photo')">Photo
+              <span class="glyphicon sort-icon" ng-show="sortKey=='photo'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            </th>
+            <th ng-click="sort('firstname')">Name
+              <span class="glyphicon sort-icon" ng-show="sortKey=='firstname'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            </th>
+            <th ng-click="sort('lastname')">Tags
+              <span class="glyphicon sort-icon" ng-show="sortKey=='lastname'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            </th>
+            <th ng-click="sort('phone')">Phone
+              <span class="glyphicon sort-icon" ng-show="sortKey=='hobby'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            </th>
+            <th ng-click="sort('email')">email
+              <span class="glyphicon sort-icon" ng-show="sortKey=='email'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            </th>
+            <th ng-click="sort('admin')">Company
+              <span class="glyphicon sort-icon" ng-show="sortKey=='admin'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            </th>
+          </tr>
+        </thead>
+        <!-- FETCHING DATA FROM DATABATE IN TABLE -->
+        <tbody>       
+          <tr ng-repeat="contact in mycard" >
+            <td>{{contact.id}}</td>
+            <td><img img data-ng-src="data:image/png;base64,{{contact.photo}}" width="100" height="100">  </td>
+            <td>{{contact.firstname+ ' ' + contact.lastname}}</td>
+            <td>{{contact.tags.join(',')}}</td>
+            <td>{{contact.phone}}</td>
+            <td>{{contact.email}}</td>
+            <td>{{contact.company}}</td>
+          </tr>
+          <tr ng-if="Message2">
+            <td colspan="7" class="contacts-center">{{Message2}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div> 
+</div> <!-- contact in mycard|orderBy:sortKey:reverse|filter:search
+ -->

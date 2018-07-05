@@ -1,0 +1,345 @@
+body {
+  padding-bottom: 40px;
+  background-color: #ddd;
+}
+/*.form-control{display: inline;}*/
+.logo{margin-top: 45px;margin-left: 25px;}
+.vertical_line{height:240px; width:1px;background:#000;margin-left:50px; }
+ul{list-style: none;}
+.alpha li {display: inline-block; float: left; padding: 0px; border:1px black solid;}
+.sort{width: 1000px; margin: auto;}
+
+
+.form-signin {
+  max-width: 531px;
+  padding: 15px;
+  margin: 0 auto;
+  background-color: #f3f3f3;
+}
+
+.newpasssword {
+  max-width: 350px;
+  padding: 15px;
+  margin: 0 auto;
+  background-color: #f3f3f3;
+}
+.form-signin .form-signin-heading,
+{
+  margin-bottom: 10px;
+}
+
+.form-signin .form-control {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  font: 15px 'Segoe UI',Arial,sans-serif;
+  background-color: #EAEBE5;
+  height: auto;
+  padding: 10px;
+  color:#7e8c8d;
+  outline:none;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.img-center {margin:0 auto;}
+
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+/*___________________________________*/
+.container .loginbox {
+  border-top: 2px solid #aaa;
+  box-shadow:  0 2px 10px rgba(0,0,0,0.8);
+  width:531px;
+  height:270px;
+  margin:200px auto;
+  position:relative;
+  z-index:1;
+
+  -moz-perspective: 800px;
+  -webkit-perspective: 800px;
+  perspective: 800px;
+}
+
+.container .passbox {
+  border-top: 2px solid #aaa;
+  box-shadow:  0 2px 10px rgba(0,0,0,0.8);
+  width:350px;
+  height:425px;
+  margin:200px auto;
+  position:relative;
+  z-index:1;
+
+  -moz-perspective: 800px;
+  -webkit-perspective: 800px;
+  perspective: 800px;
+}
+
+.container form {
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+.form-signin {
+  z-index:100;
+}
+
+
+#login{
+  background: # ;
+  z-index: 100;
+}
+.login-input{margin: 2px;}
+/*-------------DISPLAY PAGE OR CONTACT PAGE STARTS HERE-------------*/
+/*Main class for Header*/
+.user-pro{height: 60px;margin:auto;}
+
+/*Class for   Profile Pictue OF USER*/
+.user-pic {width: 50px;position: relative;}
+.klogo{margin:10px 0 0 0; width: 60px;position: relative;}
+
+
+/*Class for search panel*/
+.search{margin-top: 0px;padding: 0}
+.search1{margin:0; margin-top: 5px; height: 34px;}
+.setin{margin:0 }
+.set{margin-top:5px; }
+.set2{margin:5px -8px 0 0; }
+
+/*CLass for logout box of user in CASE OF ALL DEVICE EXCEPT MOBILE*/
+.profile{ width:250px;right:-1px;top: 50px;z-index: 1;border:1px solid black; min-height:110px; padding:10px; 
+ background-color:#ececec; display:block;position:absolute;display: none;}
+
+/*.profile{ width:250px;right:-18px;top: 60px;z-index: 1;border:1px solid black; height:110px; padding:10px; float:right; 
+ background-color:#ececec; display:block;position:absolute;display: none;}
+*/
+/*Class for logout box of user in CASE OF MOBILE*/
+ .mob-profile{ width:250px;right:-682px;top: 50px;z-index: 1;border:1px solid black; height:110px; padding:10px; float:right; 
+ background-color:#ececec; display:block;position:absolute;display: none;}
+
+/*classes for seeting up thing in mobile*/
+.input-group .form-control{z-index: 0}
+.input-group-btn>.btn{position: static}
+.right a{text-decoration: none; color: black}
+.profile .btn-primary{width: 100px; margin-top:15px;}
+
+/*CLasses for showing log out panle in hove in mobile as well as other devcies*/
+.show:hover .profile{display: block; position: absolute;box-shadow: 10px 10px 20px #888888;}
+.xam:hover .mob-profile{display: block;box-shadow: 0px 0px 20px #888888;}
+
+/*Edit user pic on hove*/
+.edit-pic{display: none;cursor:pointer; margin-top: 10px;}
+.show{padding: 0px;}
+
+.add-contact-photo:hover .edit-pic{display: block;position: absolute;} .xam:hover .edit-pic{display: block;}
+
+/*Edit profile of user on hover of name*/
+.edit-pro{display: none;}
+.profile:hover .edit-pro{display: block;}/**/
+
+
+/*EXPORT IMPORT ADD NEW CSS*/
+.opt{margin:auto; padding-left:15px;padding-right: 10px; }
+.opt span{font-size: 25px; padding: 8px; margin: 4px;}
+.opt a{text-decoration: none; color: black}
+
+
+.pop-search{width: 1000px; margin:auto;min-height: 10px }
+
+
+
+/*------------Tags BOX STARTS HERE------------------------------------------------------*/
+.tag{font-weight: bold; min-height: 50px; margin-top: 5px; padding: 5px;margin-left: 0px;}
+.s1{border-radius: 6px; background: #A6EAE4;  padding: 5px; margin: 5px;}
+.s1 a{text-decoration: none;color:black;padding-top:1px;}
+.tag a{text-decoration: none;color:black;padding-top:1px; }
+.tag a:hover{text-decoration: underline;}
+.tag a:hover .tag-del{text-decoration: underline;display:}
+.contact-card{overflow:  hidden;margin-top: 15px;height: 180px;}
+.contact-card2{overflow:  hidden; margin-top: 15px;}
+/*CONTACT CARDS CSS*/
+
+/*Main contact Card div*/
+.contact-all{height: 100px;     overflow: hidden;
+}
+/*.contacts{margin: 5px 0 0 0 ;width: 1000px; margin:auto; }*/
+.contact-row{min-height:100px; overflow: hidden;}
+.contact-box a span{font-size: 20px;}
+.ed{margin-top:5px; }
+.edit-del{display: none;}
+.contact-box:hover .edit-del{display: block;}
+.contact-box a{text-decoration: none; color: black;min-height: 100px;}
+
+/*Contact image*/
+.contact-pic{margin: 0px; padding: 0px;position:relative;height: 100px}
+
+/*Contact card info edt*/
+.contact-title{font-weight: bold}
+.contact-info { width: 15px;}
+.contact-box{background: #B3E5FC;box-shadow: 0px 0px 20px #888888;border-radius: 6px;border: 4px gray double}
+.contact-box span{margin:0 0 0 5px;font-size: x-small; }
+
+.contact-tag{min-width:10px; border-radius: 6px; background: #A6EAE4; margin: 3px; padding: 3px;}
+.contact-tag:hover .tag-del{display: block;}
+
+.add-new .form-control{display: inline;}
+.add-new{    box-shadow: 10px 10px 5px #888888;width: 600px; margin:auto;  background-image: url("assets/images/logo.png") repeat;}
+.add-new h3{background: #B8CF29; height: 30px;margin-bottom: 5px; text-align: center; padding: 2px;}
+input{margin: 10px;}
+.fa{font-size: 15px;margin: 0px;}
+.add-new .form-inline .form-control {width: 159px;}
+.add-new .form-inline .form-controlmob {width: 190px;}
+.add-new .form-inline .fname {width: 191px; margin-left: 16px;}
+.add-new .form-inline .flcol {display:inline-block;float:left;}
+.add-new .form-inline .lname {width: 187px; margin-left: 16px;}
+.add-new .form-inline .email {width: 187px; margin-left: 16px;}
+.add-new .form-inline .phone {width: 191px; margin-left: 11px;}
+.add-new .form-inline .add-box {width: 445px;margin-left: 14px;}
+.add-new .form-inline .add-box2 {width: 447px;margin-left: 30px}
+.add-new .form-inline .add-box-mob{width: 195px}
+.add-new .form-inline .pin-box-mob{margin-left: 15px;width: 194px;}
+.add-new .form-inline .add-div{ display:inline; float:left;}
+
+.add-new .form-inline .map {width: 119px;margin-left: 16px;}
+.add-new .form-inline .tag-box{width: 468px; margin-left: 10px;}
+.add-new .btn-primary:hover{background: #5CB85C;}
+.add-new .btn-primary {margin: 5px;}
+.add-new textarea{resize: none; height: 70px; margin-left:5px 0 0 0 }
+.form-area{background-color:  #cccccc; padding: 10px 40px 60px; margin:10px,auto; border: 1px solid ;}
+.add-contact-photo{padding-top: 30px;}
+.add-contact-photo i{margin:10px 0 0 25px}
+.add-contact-photo input{visibility:hidden;width:0;height:0}
+.add-contact-photo .pic{ height: 30px; width: 80px;}
+.one{margin-top: 15px;color: red}
+.submitform{height:50px;margin:10px;}
+.submit-form-edit{height:80px;margin:10px;}
+
+/*EDIT CONTACT */
+.source{width: 50px; height: 50px;}
+
+/*LIST VIEW CSS*/ 
+td:nth-child(1), th:nth-child(1){width: 60px; height: 60px;}
+
+
+/*TAG MINAGEMENT*/
+.tag-check{height: 30px;}
+
+
+/*Messgae no contact*/
+.msg-nocntct{font-size: 25px; color: red; border:1px black solid;}
+
+/*CSS FOR cretaion of tag*/
+.tagss {
+    color: #3E6D8E;
+    background-color: #E0EAF1;
+    border-bottom: 1px solid #b3cee1;
+    border-right: 1px solid #b3cee1;
+    /*padding: 3px 4px 3px 4px;*/
+    margin: 1px 2px 2px 0;
+    text-decoration: none;
+    font-size: 90%;
+    line-height: 2.4;
+}
+.tagss:hover {
+    background-color: #c4dae9;
+    border-bottom: 1px solid #c4dae9;
+    border-right: 1px solid #c4dae9;
+    text-decoration: none;
+}
+.selecttag{
+  display:inline;
+  padding:5px;
+}
+.tager{
+  display:inline-block; 
+  border-radius:5px;  
+  background: #A6EAE4;
+  margin: 5px;
+  padding: 6px;
+}
+
+.alltagsbox{position: static;}
+.suggestions
+{
+  background:white;
+  box-shadow: 10px 10px 5px #888888; 
+  min-width:180px;
+  /*margin-left:30px;*/
+  padding: 5px;
+  border-radius: 6px;
+  text-align: center;
+  overflow:auto;
+  max-height:200px;
+  margin-right:10px; position:relative;
+}
+.add-new .form-inline .tagerbox{width: 100px;border: 0px red solid;}
+/*.suggestions ul{position: absolute;} */
+.suggestions li{border-bottom: 2px #D3D3D3 solid;position:relative;}
+.tag-icon
+{
+  margin-top: 15px;
+}
+.inputboxdiv{position:relative;margin-left:34px;background:white; border-radius:6px;width:445px;}
+.editinputboxdiv{position:relative;margin-left:33px;background:white; border-radius:6px;width:445px;}
+
+
+.scrollup 
+{
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 50px;
+  right: 100px;
+  border-radius:8px; 
+  display: none;
+  color: white;
+  background-color: #B3E5FC;
+  font-size: 30px;
+  text-align: center;
+  padding:5px;
+  cursor: pointer;
+  border: 1px gray solid;
+}
+
+.bottom 
+{
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  right: 100px;
+  top:120px;
+  border-radius:8px; 
+  display: block;
+  z-index: 1;
+  color: white;
+  background-color: #B3E5FC;
+  font-size: 30px;
+  text-align: center;
+  padding:5px;
+  cursor: pointer;
+  border: 1px gray solid;
+}
+
+
+
+
+@media only screen and (max-width: 700px) {
+    .add-new {
+      width: 100%;
+    }
+}

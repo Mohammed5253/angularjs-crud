@@ -1,0 +1,7 @@
+1.Contact Application is ANgularjs + Laravel Project.
+2.config file in app folder contsist of link for conectting api.
+3.contact-sync-api folder contasist of one controller where defined all the methods of project.
+4.For any changes change the .env file of contact-sync-api.
+5.MIgrate the tables
+OR 
+Import the mysql file in database.

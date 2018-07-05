@@ -1,0 +1,35 @@
+<div class="container"  ng-controller="loginController">
+	<div class="passbox">
+		<div class="row">
+
+	          <form  name="login" class="newpasssword" id="login" role="form" method="post" novalidate>
+		       
+		       
+		       <div class="block-center">   
+		            <h5 class="form-signin-heading">Change your Passsword</h6>
+		            
+		            Enter your Email Id:
+		            <input type="email" class="form-control login-input" name="email" id="loginEmail" placeholder="Email address" ng-model="email" required >
+		            <span ng-show="login.email.$invalid && !login.email.$pristine">Enter a valid email.</span><br>
+
+		            Enter your Old Password Id:
+		             <input type="password" class="form-control login-input" name="oldpass" id="loginPass" placeholder="Password" ng-model="oldpass" required><br>
+
+                    Enter your New Password Id:
+		            <input type="password" class="form-control login-input" name="newpass" id="loginPass" placeholder="Password" ng-model="newpass" required><br>
+		           	
+
+		            <button type="submit" value="Sign in" class="btn btn-lg btn-primary btn-block" ng-click="changepass()"> Change your Password</button>
+		         	
+		         	<a href="#/contacts" value="Sign in" class="btn btn-lg btn-primary btn-block"> Cancel/Back </a>
+		         	
+		         	<div ng-if="message"  class="alert-danger" >{{ message }}
+
+		         	</div>
+		         </div>	
+		       
+	          </form><!-- /row -->
+
+	    </div> <!-- /row -->
+	</div><!--/loginbox  -->    
+</div><!--/container  -->

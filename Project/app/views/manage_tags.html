@@ -1,0 +1,89 @@
+
+
+<!-- Link to Langing Page /Homepage -->
+<a href="#/contacts" class="opt">
+  <span class="fa fa-arrow-left" data-toggle="tooltip" title="All contact page"></span>
+</a>
+
+<!-- LOg out Link -->
+<a href="" class="opt">
+  <span class="fa fa-sign-out pull-right" data-toggle="tooltip" title="All contact page" ng-click="logout()"></span>
+</a>
+
+<!-- START OF MANAGE TAG CONTRAOLLER  -->
+<div class="container " ng-controller="managetagcontroller" ng-app="managetag">
+	
+  <!-- Heading -->
+  <h3 class="text-center">Tag List</h3><br>
+  
+ <!-- Alphabet List -->
+  <div class="text-center" >
+    <ul class="alpha pagination">
+      <li ng-repeat="letter in names">
+       <span ng-click="setFilter(letter)">{{letter}}</span>
+      </li>
+    </ul>
+  </div>
+  <div class="container">
+    <span class="fa fa-tags s1" style="margin:5px" ng-repeat="tags in managetag | filter:startsWith | orderBy: 'name'" >
+     <!-- Tag name -->
+     <a href="" ng-click="tagcontact(tags)">{{tags.name}}</a>
+     <a href="">  <span class="fa fa-edit" ng-click="edit(tags)"></span></a>
+     <a href="" ng-click="delete(tags)">  <span class="fa fa-trash"></span></a>
+    </span>
+    <br>
+
+    <!-- BLOCK WILL DISPLAY ONCE ADMIN CLICK ON EDIT TAG -->
+    <div ng-show="edittag">
+      Edit Tag:
+      <input type="textbox" ng-value="mytag.name" ng-model="tag.tagname">
+      <button ng-click="edittag(mytag)">Update tag</button>
+    </div>
+
+      <!-- MESSGAE IF NO ANY CONTACT ALAVIL ON ONLCIK OF TAG NAME -->
+     <h3 ng-if="Message2" class="text-center">{{Message2}}</h3>
+     <!-- DISPLAY CONTACT  ON ONLCIK OF TAG NAME -->
+    <div class="col-xs-12 col-md-6 col-sm-6 contact-card" ng-repeat="contact in mycard" >
+       <div class="col-md-12 col-sm-12 col-xs-12 col-lg-9 contact-box">
+
+         <!-- DISPLAY OF EDIT DELETE OF CONTACT -->
+          <div class="ed">
+            <a href="#/edit_contact/{{contact.id}}">
+              <span class="pull-right fa fa-edit edit-del" data-toggle="tooltip" title="Edit Contact"></span>
+            </a>
+            <a href="">
+                <span class="pull-right fa fa-trash edit-del" data-toggle="tooltip" title="Delete contact" ng-click="delete(contact)"></span>
+            </a>
+            <br>
+          </div>
+
+          <!--CONTACT PHOTO  -->
+          <div class="col-lg-4 col-sm-4 col-xs-4 col-md-4 contact-pic">
+            <img data-ng-src="data:image/png;base64,{{contact.photo}}" class="img-circle image-responsive" width=100 height=100>
+          </div>
+          
+          <!-- CONTACT FIRSTNAME AND LASTNAME, EMAIL AND PHONE -->
+          <div class="col-lg-8 col-sm-8 col-md-8 col-xs-8 contact-all">
+            <h4 class="contact-title">
+              <a href="#/edit_contact/{{contact.id}}">
+               {{contact.firstname+ " "+contact.lastname}}
+              </a>
+            </h4>
+
+            <i class="fa fa-envelope contact-info" data-toggle="tooltip" title="Email ID"></i><span>{{contact.email}}</span><br>
+
+            <i class="fa fa-phone contact-info" data-toggle="tooltip" title="Phone"></i><span>{{contact.phone}}</span><br><br>
+          </div>
+          <!-- TAG NAME -->
+         <p> 
+            <span class="fa fa-tags"></span>
+            Tags: 
+            <strong>
+              {{contact.tags.join(',')  | limitTo:25}}
+              <span ng-if="contact.tags.join(',').length > 25" data-toggle="tooltip" title={{contact.tags.join(',')}}><i class="fa fa-chevron-right"></i></span>
+            </strong>
+          </p> 
+       </div>
+    </div>
+  </div>
+</div> 

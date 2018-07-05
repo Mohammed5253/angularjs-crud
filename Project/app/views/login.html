@@ -1,0 +1,70 @@
+<div class="container"  ng-controller="loginController">
+	<div class="row">
+
+		<div class="col-lg-12 col-sm-12 col-md-12 visible-lg visible-sm visible-md">
+
+			<div class="loginbox">
+		
+		         <form  name="login" class="form-signin" id="login" role="form" method="post" novalidate>
+			       <div>
+			       <img src="assets/images/kratin.png" class="pull-left logo" width="130"/>
+			       </div>
+			       <div class="vertical_line" style="display:inline;float:left"></div>
+			       <div class="pull-right">   
+		    	        <h3 class="form-signin-heading pull-left">Sign in</h3>
+		        	    
+		            	<input type="email" class="form-control login-input" name="email" id="loginEmail" placeholder="Email address" ng-model="email" required >
+		           	
+		            	<span ng-show="login.email.$invalid && !login.email.$pristine">Enter a valid email.</span>
+
+		            	<input type="password" class="form-control login-input" name="pass" id="loginPass" placeholder="Password" ng-model="pass" required>
+
+		            	<span ng-show="login.pass.$invalid && !login.pass.$pristine">Password is required.</span>
+		            
+		            	<button type="submit" value="Sign in" class="btn btn-lg btn-primary btn-block" ng-click="submitForm(email,pass)" ng-disabled="!login.$valid"> sign-in </button>
+		         	
+		         		<div ng-if="errorMessage" style="color:red">{{ errorMessage }}
+		         		</div>
+			       </div>
+			       
+			       
+		        </form><!-- /row -->
+		    </div>     
+	    </div> <!-- /row -->
+	</div><!--/loginbox  -->    
+</div><!--/container  -->
+
+<!-- MOBILE VIEW LOGIN BOX -->
+
+<div class="container"  ng-controller="loginController">
+	<div class="row">
+
+		<div class="col-xs-12 visible-xs">
+
+			<center>
+			
+			    <form  name="login" class="" id="login" role="form" method="post" novalidate>
+				      
+				    <img src="assets/images/kratin.png" class="logo" width="130"/>
+				    <div class="clearfix"></div>
+				    <div class="block-center">   
+				        <h3 class="form-signin-heading">Sign in</h3>
+				            
+				        <input type="email" class="form-control login-input" name="email" id="loginEmail" placeholder="Email address" ng-model="email" required >
+				           	
+				        <span ng-show="login.email.$invalid && !login.email.$pristine">Enter a valid email.</span>
+
+				        <input type="password" class="form-control login-input" name="pass" id="loginPass" placeholder="Password" ng-model="pass" required>
+
+				        <span ng-show="login.pass.$invalid && !login.pass.$pristine">Password is required.</span>
+				           
+				        <button type="submit" value="Sign in" class="btn btn-lg btn-primary btn-block" ng-click="submitForm(email,pass)" ng-disabled="!login.$valid"> sign-in </button>
+				         	
+				       	<div ng-if="errorMessage" style="color:red">{{ errorMessage }}
+				       	</div>
+				    </div>	
+			    </form><!-- /row -->
+			<center>
+		</div> <!-- /row -->	
+	</div><!--/loginbox  -->    
+</div><!--/container  -->

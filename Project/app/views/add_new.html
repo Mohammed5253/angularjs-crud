@@ -1,0 +1,207 @@
+<div class="contianer">	
+	<div class="add-new" ng-controller="addContactController">
+	    <div class="form-area">  
+	        <form role="form" name="addnew" id="login" role="form" ng-submit="submitContact(addnew.$valid)" method="post"  enctype='multipart/form-data' style="text-align:center" novalidate>
+	        	<br clear="clearfix">
+	            <h3 class="col-lg-12 col-md-12 col-sm-12 visible-lg visible-sm visible-md">	   Add New Contact
+	            </h3>
+	            <h3 class="col-xs-12 visible-xs">Add New Contact</h3>
+	            <div class="clearfix"></div>
+
+    			<!-- IMAGE INPUT CODE -->
+    			<div class="add-contact-photo text-center">
+    						
+    			    <label for="fileToUpload">
+    							
+    					<img ng-src="assets/images/name.png" width=100 height="100" ng-model="form.photo" class="img-circle" ng-hide="form.photo">
+
+    					<span class="fa fa-pencil edit-pic"></span>
+    						
+    					<img ng-src="{{ thumbnail.dataUrl }}"	 width=100 height="100" ng-model="form.photo" class="img-circle" ng-show="form.photo">
+
+    				</label>
+			        <input type='file' ng-model='form.photo' name="fileToUpload" id="fileToUpload" onchange="angular.element(this).scope().photoChanged(this.files)" base-sixty-four-input >
+
+			          		<!--  <img data-ng-src="data:image/png;base64,{{form.photo}}" ng-model="newpic"> -->
+			    </div>
+       			<div ng-if="fileerror">Please Select Image only</div>
+
+			    <div class="clearfix"></div>
+
+		        <!-- FIRSTNAME INPUT CODE -->
+	 				<div class="form-inline col-lg-6 col-sm-6 col-md-6 col-xs-12">
+					<span class="fa fa-user"></span><input type="text" class="form-control fname " id="name" name="firstname" ng-model="form.firstname" placeholder="Firstname" ng-required="!(form.firstname.length || form.lastname.length)">
+				</div>
+
+					
+
+				<!-- LASTNAME INPUT CODE -->
+				<div class="form-inline col-lg-6 col-sm-6 col-md-6 col-xs-12" style="display:inline-block;float:left;">
+					<span class="fa fa-user"></span><input type="text" class="form-control lname" id="name" name="lastname" placeholder="Lastname" ng-model="form.lastname">
+				</div>
+				<div class="clearfix"></div>
+
+				<!-- EMAIL INPUT CODE -->
+				<div class="form-inline col-lg-6 col-sm-6 col-md-6 col-xs-12">
+					
+					<span class="fa fa-envelope"></span><input type="email" class="form-control lname" id="name" name="email" ng-model="form.email" placeholder="Email" ng-required="!(form.email.length ||form.phone.length)">
+					<p ng-show="addnew.email.$invalid && !addnew.email.$pristine">Enter a valid email.</p>
+				</div>
+
+					<!-- PHONE INPUT CODE -->
+				<div class="form-inline col-lg-6 col-sm-6 col-md-6 col-xs-12">
+					<span class="fa fa-phone"></span>
+					<input type="tel" class="form-control phone" id="name" name="phone" placeholder="Phone" ng-model="form.phone"  ng-pattern="/^[0-9]{10}$/">
+					<p ng-show="addnew.phone.$error.pattern">Not a valid number!</p>
+				</div>
+					
+				<div class="clearfix"></div>
+
+				<!-- ADDRESS, INPUT CODE -->
+				<div class="form-inline col-lg-12 col-sm-12 col-md-12 visible-lg visible-sm visible-md">
+					<span class="fa fa-globe"></span>
+					<input type="text" class="form-control add-box" id="subject" name="address1" placeholder="Address Line1" ng-model="form.add1" >
+					<input type="text" class="form-control add-box2" id="subject" name="address2" placeholder="Address Line2" ng-model="form.add2" >
+				</div>
+
+				<div class="clearfix"></div>
+				
+				<div class="form-inline col-xs-12 visible-xs">
+					<span class="fa fa-globe"></span>
+					<input type="text" class="form-control add-box-mob" id="subject" name="address1" placeholder="Address Line1" ng-model="form.add1" ><br>
+				</div>	
+
+				<div class="form-inline col-xs-12 visible-xs">
+					<span class="fa fa-globe"></span>
+					<input type="text" class="form-control add-box-mob" id="subject" name="address1" placeholder="Address Line2" ng-model="form.add2">
+				</div>
+
+				<div class="clearfix"></div>
+
+				<!-- CITY,PINCODE, COUNTRY INPUT CODE -->
+				<div class="form-inline col-lg-12 col-md-12 col-sm-12 visible-lg visible-md visible-sm">
+					<!-- CITY -->
+					<div class="add-div">
+					<span class="fa fa-location-arrow"></span>
+					<input type="text" class="form-control map" id="subject" name="city" placeholder="City" ng-model="form.city">
+					</div>
+					<!-- PIN -->
+					<div class="add-div">
+						<span class="fa fa-map-pin"></span>
+						<input type="tel" class="form-control map" id="subject" name="pincode" placeholder="Pincode" ng-model="form.pincode" ng-pattern="/^[0-9]{6}$/">	
+						<p ng-show="addnew.pincode.$error.pattern">Enter 6 digit Pincode.</p>
+					</div>
+					<!-- COUNTRY -->
+					<div class="add-div">
+					<span class="fa fa-globe"></span>
+					<input type="text" class="form-control map" id="subject" name="country	" placeholder="Country" ng-model="form.country" >
+				</div>
+				</div>
+
+				<div class="clearfix"></div>
+
+				<div class="form-inline col-xs-12 visible-xs ">
+
+					<!-- CITY -->
+					<span class="fa fa-location-arrow"></span>
+					<input type="text" class="form-control add-box-mob" id="subject" name="city" placeholder="City" ng-model="form.city" >
+
+					<!-- PIN --><br>
+					<span class="fa fa-map-pin"></span>
+					<input type="tel" class="form-control pin-box-mob" id="subject" name="mobcode" placeholder="Pincode" ng-model="form.pincode" ng-pattern="/^[0-9]{6}$/">
+
+					<p ng-show="addnew.mobcode.$error.pattern">Enter 6 digit Pincode.</p>
+
+					<!-- COUNTRY --><br>
+					<span class="fa fa-globe"></span>
+					<input type="text" class="form-control add-box-mob" id="subject" name="country	" placeholder="Country" ng-model="form.country" >
+
+				</div>
+
+				<div class="clearfix"></div>
+
+				<!-- COMPANY NAME INPUT CODE -->
+				<div class="form-inline col-lg-12 col-md-12 col-sm-12 visible-lg visible-md visible-sm ">
+					<span class="fa fa-briefcase"></span>
+					<input type="text" class="form-control add-box" id="subject" name="company" placeholder="Comapny" ng-model="form.company">
+				</div>	
+
+
+				<!-- COMPANY NAME INPUT CODE FOr mobile-->
+				<div class="form-inline col-xs-12 visible-xs ">
+					<span class="fa fa-briefcase"></span>
+					<input type="text" class="form-control add-box-mob" id="subject" name="company" placeholder="Comapny" ng-model="form.company">
+				</div>	
+
+				<div class="clearfix"></div>
+
+				<!-- TAGS INPUT CODE -->
+                <div class="form-inline col-lg-12 col-md-12 col-sm-12 visible-lg visible-md visible-sm alltagsbox">
+             		<span class="fa fa-tags pull-left tag-icon"></span>
+             		<div class="inputboxdiv">
+	                	<ul ng-show="tager.length != '0'" class="selecttag">
+                	    	<li ng-repeat="tags in tager" class="tager">
+        	            	
+        	            		<strong>{{tags.name}}</strong> 
+        	            	
+        	            		<label ng-click="removeTag(tags)">
+        	            			<span class="fa fa-trash-o"></span>
+        	            		</label>
+	        	           	</li>
+		                </ul>
+
+                		<input type="text" class="form-control tagerbox" value="" placeholder="Add a tag" ng-model="form.tags" ng-change="sugg()" my-enter="newtag(form.tags);form.tags = ''" ng-hide="hideList()"/>	
+                		
+                		<ul  ng-show="suggestion" class="suggestions" id="selections">
+            			
+            				<li ng-click="sel(tags);form.tags = ''" value="{{tags.name}}" style="cursor:pointer;" ng-repeat="tags in suggtag">
+            					{{tags.name}}
+            				</li>
+            			</ul>
+            		</div> 		                  	
+                </div>
+
+				<div class="clearfix"></div>
+
+				<!-- FOR MOBILE -->
+                <div class="form-inline col-xs-12 visible-xs">
+                	<span class="fa fa-tags tag-icon"></span>
+             		                     			
+	                <ul ng-show="tager.length != '0'" class="selecttag">
+                	    <li ng-repeat="tags in tager" class="tager">
+        	            	
+        	            	<strong>{{tags.name}}</strong> 
+        	            	
+        	            	<label ng-click="removeTag(tags)">
+        	            		<span class="fa fa-trash-o"></span>
+        	            	</label>
+
+        	           	</li>
+	                </ul>
+
+                	<input type="text" class="form-control tagerbox" value="" placeholder="Add a tag" ng-model="form.tags" ng-change="sugg()" my-enter="newtag(form.tags);form.tags = ''" ng-hide="hideList()"/>	
+                	<ul  ng-show="suggestion" class="suggestions" id="selections">
+            			
+            			<li ng-click="sel(tags);form.tags = ''" value="{{tags.name}}" style="cursor:pointer;" ng-repeat="tags in suggtag" id="taglist">
+            				{{tags.name}}
+            			</li>
+            		</ul> 		
+        		</div>
+
+            	<div class="text-info center-text">(Mandatory Fields <strong>Firstname / lastname</strong> AND <strong>Email / Phone</strong>)</div>
+
+            	            	<div class="clearfix"></div>
+	
+        		<div>
+        			<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+		        		
+		        		<button type="submit" id="submit" name="submit" class="btn btn-primary pull-right"  ng-click="submitContact()" ng-disabled="!addnew.$valid">Add New Contact</button>
+		        
+		         		<button type="button" id="submit" name="submit" class="btn btn-primary pull-right" ng-click="goback()">Back</button>
+		         	</div>
+		        </div>
+            	<div class="clearfix"></div>		        
+	        </form>
+		</div>
+	</div>
+</div>
